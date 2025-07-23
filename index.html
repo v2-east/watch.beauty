@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamEast – Live Sports Schedule & HD Streaming</title>
+  <meta name="description"
+    content="StreamEast lets you watch live sports in HD for free. Browse NBA, NFL, UFC, Boxing, Soccer, F1 & more with live schedules and scores.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="StreamEast – Free Live Sports Streaming">
+  <meta property="og:description"
+    content="Check live schedules and watch NBA, NFL, UFC, Boxing, Soccer, F1 & more – all in HD and free. No sign-up required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <style>
+    :root {
+      --accent: #00ffc8;
+      --bg: #0d0e11;
+      --card: #1a1c1f;
+      --text: #f0f0f0;
+      --muted: #999;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #111;
+      border-bottom: 4px solid var(--accent);
+      /* Removed sticky styles */
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: var(--accent);
+    }
+
+    nav#tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px;
+      background-color: #151515;
+      /* Removed sticky styles */
+    }
+
+    nav#tabs button {
+      background-color: #222;
+      color: var(--text);
+      border: 1px solid #333;
+      border-radius: 30px;
+      padding: 10px 18px;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav#tabs button:hover,
+    nav#tabs button.active {
+      background-color: var(--accent);
+      color: #000;
+      transform: translateY(-2px);
+    }
+
+    .slider {
+      padding: 10px;
+      background-color: #1b1d1f;
+    }
+
+    .slider marquee {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .schedule-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .league-section {
+      margin-bottom: 50px;
+    }
+
+    .league-title {
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 6px;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .card {
+      background-color: var(--card);
+      padding: 18px;
+      border-radius: 10px;
+      border: 1px solid #2a2a2a;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background-color: #242627;
+      transform: translateY(-3px);
+    }
+
+    .card p {
+      margin: 4px 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #101010;
+      padding: 40px 20px;
+      border-top: 3px solid var(--accent);
+    }
+
+    .article-box {
+      background-color: var(--card);
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 35px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.05);
+      border: 1px solid #2a2a2a;
+      color: var(--text);
+    }
+
+    .article-box h1 {
+      color: var(--accent);
+      border-bottom: 2px solid #2a2a2a;
+      padding-bottom: 10px;
+    }
+
+    .article-box h2 {
+      color: var(--accent);
+      margin-top: 30px;
+    }
+
+    .article-box p,
+    .article-box ul,
+    .article-box ol {
+      color: var(--muted);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"SportsEvent",
+    "name":"StreamEast Live Sports Schedule",
+    "startDate":"2025-07-23T12:00:00-04:00",
+    "eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode",
+    "eventStatus":"https://schema.org/EventScheduled",
+    "location":{"@type":"VirtualLocation","url":"https://yourdomain.com"}
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>StreamEast</h1>
+  </header>
+
+  <nav id="tabs"></nav>
+
+  <div class="slider">
+    <marquee>📺 Welcome to StreamEast — Free HD Sports Streams: NBA, NFL, UFC, Boxing, Soccer, F1 & more!</marquee>
+  </div>
+
+  <div class="schedule-container" id="schedule-container">
+    <noscript>
+      <p style="color:#ccc; text-align:center; padding:20px;">
+        JavaScript is disabled. Here are some sample upcoming events:<br>
+        • NBA vs Team – TBD – Live Soon<br>
+        • UFC vs Opponent – TBD – Live Soon
+      </p>
+    </noscript>
+  </div>
+
+  <footer>
+    <style>
+      .article-box {
+        background-color: var(--card);
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 35px 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 255, 200, 0.05);
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        border: 1px solid #2a2a2a;
+        color: var(--text);
+      }
+
+      .article-box h1 {
+        font-size: 30px;
+        color: var(--accent);
+        margin-bottom: 20px;
+        border-bottom: 2px solid #2a2a2a;
+        padding-bottom: 10px;
+      }
+
+      .article-box h2 {
+        font-size: 24px;
+        margin-top: 30px;
+        color: var(--accent);
+      }
+
+      .article-box h3 {
+        font-size: 18px;
+        color: var(--text);
+        margin-top: 20px;
+      }
+
+      .article-box p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--muted);
+        margin-top: 15px;
+      }
+
+      .article-box ul,
+      .article-box ol {
+        margin-left: 20px;
+        color: var(--muted);
+      }
+
+      .article-box ul li::marker {
+        color: var(--accent);
+      }
+
+      .article-box strong {
+        color: var(--text);
+      }
+    </style>
+
+    <div class="article-box">
+      <h2>StreamEast – Your Destination for Free HD Sports Streaming</h2>
+
+      <p>StreamEast has rapidly become one of the most popular destinations for sports fans around the world. Designed
+        to provide a premium viewing experience without any fees, this platform is dedicated to delivering
+        high-definition sports streams that cover everything from basketball and football to fighting and motorsports.
+      </p>
+
+      <p>With zero subscription fees and no signup required, StreamEast offers a seamless experience. You simply visit,
+        browse, and watch—no strings attached. The site has been optimized for speed, clarity, and user satisfaction,
+        making it ideal for both casual fans and hardcore sports addicts.</p>
+
+      <h2>What Makes StreamEast Stand Out?</h2>
+
+      <p>In an age where most sports platforms are hidden behind paywalls, StreamEast remains proudly free. Its
+        commitment to accessibility and quality has attracted a loyal following. The platform is not just a streaming
+        site—it’s a sports companion that helps fans keep track of schedules, live scores, and upcoming games in
+        real-time.</p>
+
+      <ul>
+        <li><strong>HD Streams:</strong> All matches are streamed in crisp, high definition for the best viewing
+          experience.</li>
+        <li><strong>Live Scores & Schedules:</strong> Updated every minute, so you never miss a game.</li>
+        <li><strong>Wide Sports Coverage:</strong> NBA, NFL, MLB, UFC, Soccer, F1, MotoGP, and more.</li>
+        <li><strong>No Login or Signup:</strong> Just click and watch—no registration needed.</li>
+        <li><strong>Multi-Device Support:</strong> Watch from mobile, tablet, laptop, or desktop.</li>
+      </ul>
+
+      <h2>How StreamEast Displays Live Events</h2>
+
+      <p>One of the most unique features of StreamEast is its dynamic live event scheduler. The website automatically
+        fetches today's and tomorrow's live and upcoming games using reliable sports APIs. Events are shown with team
+        logos, match times (in Eastern Time), and live countdowns if the event is starting soon.</p>
+
+      <p>Once a match goes live, it displays real-time scores and game progress, allowing users to stay informed without
+        needing to open any external apps. Events are sorted so that today's live games always appear at the top, and
+        upcoming ones follow.</p>
+
+      <h2>Popular Sports You Can Watch</h2>
+
+      <h3>NBA – National Basketball Association</h3>
+      <p>Watch every dunk, buzzer-beater, and triple-double from the world’s top basketball league. Whether it’s a
+        regular season showdown or Game 7 of the Finals, StreamEast has it covered.</p>
+
+      <h3>NFL – National Football League</h3>
+      <p>Sunday Night Football, Monday Night Football, and the Super Bowl are all just a click away. Get access to every
+        team, every matchup, and every score in real time.</p>
+
+      <h3>UFC – Ultimate Fighting Championship</h3>
+      <p>All UFC events including Fight Nights and PPVs are streamed live. From prelims to main events, fans won’t miss
+        a single punch, kick, or takedown.</p>
+
+      <h3>Boxing</h3>
+      <p>Catch all championship bouts and undercards with full coverage and live commentary. StreamEast ensures fans are
+        part of the action from the first bell to the final decision.</p>
+
+      <h3>Soccer</h3>
+      <p>From Premier League to La Liga, Champions League to international friendlies, StreamEast brings the beautiful
+        game to your screen no matter the league or country.</p>
+
+      <h3>MLB – Major League Baseball</h3>
+      <p>Experience the full thrill of America’s pastime. Every pitch, homerun, and inning is streamed live with HD
+        clarity and fast updates.</p>
+
+      <h3>F1 – Formula One</h3>
+      <p>Watch every Grand Prix with smooth, uninterrupted streams. Feel the speed of elite racing circuits as the
+        world’s best drivers compete for the podium.</p>
+
+      <h3>MotoGP</h3>
+      <p>High-octane two-wheel racing for adrenaline junkies. Watch qualifying, warm-ups, and race day coverage with
+        smooth HD streaming.</p>
+
+      <h2>How to Watch a Stream</h2>
+
+      <ol>
+        <li>Visit the StreamEast homepage.</li>
+        <li>Select your favorite sport from the top navbar.</li>
+        <li>Choose from live or upcoming events listed on the page.</li>
+        <li>Click on the card to redirect to the streaming link.</li>
+        <li>Enjoy free, high-quality sports action instantly!</li>
+      </ol>
+
+      <h2>FAQs About StreamEast</h2>
+
+      <h3>Is StreamEast safe to use?</h3>
+      <p>Yes, StreamEast does not ask for personal information, passwords, or logins. It is a public streaming site, but
+        as with any free service, users should use pop-up blockers and ad filters for the best experience.</p>
+
+      <h3>Do I need to download anything?</h3>
+      <p>No. StreamEast runs entirely in your browser. There are no downloads, plugins, or additional software required.
+      </p>
+
+      <h3>Can I use it on mobile?</h3>
+      <p>Absolutely. The site is fully responsive and optimized for mobile, allowing you to watch live games from
+        anywhere at any time.</p>
+
+      <h2>Final Words</h2>
+      <p>StreamEast is changing how people access sports. It removes all the traditional roadblocks—cost, access,
+        restrictions—and replaces them with speed, freedom, and reliability. Whether you’re watching a high-stakes
+        fight, a heated playoff, or a regular season game, StreamEast ensures it’s always in HD, always live, and always
+        free.</p>
+
+      <p>In short, if you want a smooth, fast, and complete sports viewing experience without opening your wallet,
+        StreamEast is the ultimate choice.</p>
+    </div>
+
+  </footer>
+
+  <script>
+    const leagues = [
+      { name: 'MLB', api: 'https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard', icon: '⚾' },
+      { name: 'NFL', api: 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard', icon: '🏈' },
+      { name: 'NBA', api: 'https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard', icon: '🏀' },
+      { name: 'UFC', api: 'https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard', icon: '🥋' },
+      { name: 'Boxing', api: '', icon: '🥊' },
+      { name: 'Soccer', api: 'https://site.api.espn.com/apis/site/v2/sports/soccer/all/scoreboard', icon: '⚽' },
+      { name: 'F1', api: 'https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard', icon: '🏎️' },
+      { name: 'MotoGP', api: 'https://site.api.espn.com/apis/site/v2/sports/racing/motogp/scoreboard', icon: '🏍️' }
+    ];
+    const leagueLinks = {
+      MLB: 'https://methstreams.wiki/category/2',
+      NFL: 'https://methstreams.wiki/category/6',
+      NBA: 'https://methstreams.wiki/category/3',
+      UFC: 'https://methstreams.wiki/category/5',
+      Boxing: 'https://methstreams.wiki/category/4',
+      Soccer: 'https://methstreams.wiki/category/7',
+      F1: 'https://methstreams.wiki/category/9',
+      MotoGP: 'https://methstreams.wiki/category/10'
+    };
+    const tabContainer = document.getElementById('tabs');
+    leagues.forEach(l => {
+      const btn = document.createElement('button');
+      btn.innerText = `${l.icon} ${l.name}`;
+      btn.onclick = () => window.location.href = leagueLinks[l.name];
+      tabContainer.appendChild(btn);
+    });
+    const scheduleContainer = document.getElementById('schedule-container');
+    function isTodayET(d) { const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })); return d.toDateString() === now.toDateString(); }
+    function getTimeDiff(from, to) { const diff = to - from; if (diff <= 0) return 'Now'; const m = Math.floor(diff / 60000), h = Math.floor(m / 60), r = m % 60; return h > 0 ? `${h} hr ${r} min` : `${r} min`; }
+    function renderEvents(dataArray) {
+      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/New_York' }));
+      let combined = leagues.map((l, i) => { const d = dataArray[i]; if (!d || !d.events) return { l, ev: [], has: false }; const ev = d.events.filter(e => { let dt = new Date(new Date(e.date).toLocaleString('en-US', { timeZone: 'America/New_York' })); let s = e.status?.type?.state; return s === 'in' || (isTodayET(dt) && dt > now); }); return { l, ev, has: ev.length > 0 }; });
+      combined.sort((a, b) => b.has - a.has);
+      scheduleContainer.innerHTML = '';
+      combined.forEach(c => {
+        const sec = document.createElement('div');
+        sec.className = 'league-section';
+        sec.innerHTML = `<h2 class="league-title">${c.l.icon} ${c.l.name}</h2><div class="card-grid"></div>`;
+        const grid = sec.querySelector('.card-grid');
+        if (!c.has) { grid.innerHTML = '<p>No live or upcoming events today.</p>'; }
+        else c.ev.forEach(e => {
+          const co = e.competitions[0].competitors, t1 = co[0], t2 = co[1];
+          const dt = new Date(new Date(e.date).toLocaleString('en-US', { timeZone: 'America/New_York' })), isLive = e.status.type.state === 'in';
+          const div = document.createElement('div');
+          div.className = 'card';
+          div.innerHTML = `
+          <div style="display:flex;justify-content:space-between;gap:15px">
+            <div style="text-align:center"><img src="${t1.team.logo}" width="60" height="60" style="border-radius:50%"><div>${t1.team.displayName}</div><div style="color:var(--accent)">${isLive ? t1.score : ''}</div></div>
+            <strong>VS</strong>
+            <div style="text-align:center"><img src="${t2.team.logo}" width="60" height="60" style="border-radius:50%"><div>${t2.team.displayName}</div><div style="color:var(--accent)">${isLive ? t2.score : ''}</div></div>
+          </div>
+          ${isLive ? `<p style="color:red;font-weight:bold">⏱ ${e.status.type.detail} – ${e.status.displayClock}</p>` :
+              `<p><strong>Time (ET):</strong> ${dt.toLocaleString('en-US', { timeZone: 'America/New_York' })}</p>
+           <p>Status: Scheduled</p>
+           <p style="color:#007bff;font-weight:bold">Starts in: ${getTimeDiff(now, dt)}</p>`}`;
+          div.onclick = () => window.location.href = leagueLinks[c.l.name];
+          grid.appendChild(div);
+        });
+        scheduleContainer.appendChild(sec);
+      });
+    }
+    async function fetchSchedules() {
+      const arr = await Promise.all(leagues.map(l => l.api ? fetch(l.api).then(r => r.json()).catch(() => null) : Promise.resolve(null)));
+      renderEvents(arr);
+    }
+    fetchSchedules();
+    setInterval(fetchSchedules, 1000 * 60 * 2);
+  </script>
+</body>
+
+</html>
